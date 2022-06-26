@@ -1,11 +1,11 @@
-from django.forms import ValidationError
+import datetime
+from collections import deque
 from rest_framework import status, generics
 from rest_framework.response import Response
+from rest_framework.serializers import ValidationError
 from shop_units.models import ShopUnit
 from .serializers import ShopUnitNodeSerializer, ShopUnitImportSerializer
 from .errors import VALIDATION_FAILED, NOT_FOUND_ERROR
-from collections import deque
-import datetime
 
 
 class ShopUnitImport(generics.ListCreateAPIView):
@@ -75,7 +75,7 @@ class ShopUnitDetail(generics.RetrieveAPIView):
     def retrieve(self, request, *args, **kwargs):
         item_id = kwargs.get('pk')
         try:
-            item = ShopUnit.objects.get(id=item_id)
+            ShopUnit.objects.get(id=item_id)
         except ShopUnit.DoesNotExist:
             return Response(
                 NOT_FOUND_ERROR,

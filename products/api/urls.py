@@ -1,7 +1,9 @@
-from django.urls import include, path
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 
-from .views import ShopUnitImport, ShopUnitDestroy, ShopUnitDetail, ShopUnitSales
+from .views import (
+    ShopUnitImport, ShopUnitDestroy,
+    ShopUnitDetail, ShopUnitSales
+)
 
 urlpatterns = [
     path('imports/', ShopUnitImport.as_view()),
