@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,7 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'shop_units.apps.ShopUnitsConfig'
+    'rest_framework',
+    'shop_units.apps.ShopUnitsConfig',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
